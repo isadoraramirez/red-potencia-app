@@ -7,12 +7,14 @@ import {
   View,
   SafeAreaView,
   Image,
-  Alert
+  Alert,
+  NativeModules
 } from "react-native";
 import {  MaterialIcons } from 'react-native-vector-icons/MaterialCommunityIcons';
 import LinearGradient from 'react-native-linear-gradient';
 import { RadioButton } from "react-native-paper";
 
+const openpay = NativeModules.OpenpayModule; // <- — and Here
 
 class PaymentScreen extends React.Component {
 
@@ -21,6 +23,11 @@ class PaymentScreen extends React.Component {
     this.state={checked: ""
     
     }
+  }
+  async componentDidMount(){
+    const id = await openpay.createCreditCard("Juan Perez")
+
+    console.log(test)
   }
   goBack = () => {
     this.props.navigation.goBack();
