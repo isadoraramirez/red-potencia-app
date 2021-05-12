@@ -14,19 +14,22 @@ import {  MaterialIcons } from 'react-native-vector-icons/MaterialCommunityIcons
 import LinearGradient from 'react-native-linear-gradient';
 import { RadioButton } from "react-native-paper";
 
-const openpay = NativeModules.OpenpayModule; // <- — and Here
+//const openpay = NativeModules.OpenpayModule; // <- — and Here
+
+const { OpenpayModule } = NativeModules;
 
 class PaymentScreen extends React.Component {
 
   constructor(props){
     super(props);
     this.state={checked: ""
-    
+  
     }
   }
   async componentDidMount(){
-    const id = await openpay.createCreditCard("Juan Perez")
-
+    console.log('TEST OPENPAY')
+   // const id = await openpay.createCreditCard("Juan Perez")
+    const test = await OpenpayModule.createCreditCard()
     console.log(test)
   }
   goBack = () => {
