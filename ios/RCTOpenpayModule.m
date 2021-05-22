@@ -7,14 +7,18 @@
 
 #import <Foundation/Foundation.h>
 #import "RCTOpenpayModule.h"
-
+#import <OpenpayKit/OpenpayKit-Swift.h>
+#import "potencia-Swift.h"
 @implementation RCTOpenpayModule
-
 
 RCT_EXPORT_MODULE();
 
 RCT_EXPORT_METHOD(createCreditCard:(RCTPromiseResolveBlock)resolve
                   rejecter:(RCTPromiseRejectBlock)reject) {
-  resolve(@"Creando tarjeta");
+  SwOpenpay * obj = [[SwOpenpay alloc] init];
+  [obj createCreditcard:resolve rejecter:reject];
+  
 }
+
+
 @end
