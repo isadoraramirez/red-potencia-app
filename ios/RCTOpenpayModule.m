@@ -13,12 +13,15 @@
 
 RCT_EXPORT_MODULE();
 
-RCT_EXPORT_METHOD(createCreditCard:(RCTPromiseResolveBlock)resolve
+RCT_EXPORT_METHOD(createCreditCard:(NSString *) name resolve:(RCTPromiseResolveBlock)resolve
                   rejecter:(RCTPromiseRejectBlock)reject) {
   SwOpenpay * obj = [[SwOpenpay alloc] init];
-  [obj createCreditcard:resolve rejecter:reject];
+  [obj createCreditcard:name resolve:resolve rejecter:reject];
   
 }
+
+
+
 
 
 @end
