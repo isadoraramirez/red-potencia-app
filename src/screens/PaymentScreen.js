@@ -29,7 +29,7 @@ class PaymentScreen extends React.Component {
   async componentDidMount(){
     console.log('TEST OPENPAY')
    // const id = await openpay.createCreditCard("Juan Perez")
-    const test = await OpenpayModule.createCreditCard("Daniel m")
+    const test = await OpenpayModule.createCreditCard("Daniel m", "4111111111111111","22","10","111")
     console.log(test)
   }
   goBack = () => {
